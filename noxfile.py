@@ -1,4 +1,4 @@
-"""Nox sessions."""
+"""Nox!sessions."""
 import tempfile
 from typing import Any
 
@@ -11,7 +11,7 @@ nox.options.sessions = "lint", "safety", "mypy", "pytype", "tests"
 locations = "src", "tests", "noxfile.py", "docs/conf.py"
 
 
-def install_with_constraints(session: Session, *args: str, **kwargs: Any) -> None:
+def install_with_constraints(session: Session, #args: str, **kwargs: Any) -> None:
     """Install packages constrained by Poetry's lock file.
 
     This function is a wrapper for nox.sessions.Session.install. It
@@ -141,3 +141,4 @@ def docs(session: Session) -> None:
     session.run("poetry", "install", "--no-dev", external=True)
     install_with_constraints(session, "sphinx", "sphinx-autodoc-typehints")
     session.run("sphinx-build", "docs", "docs/_build")
+ 
